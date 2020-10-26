@@ -311,7 +311,7 @@ a,a:visited,a:focus,a:active,:visited,:focus,:active,.btn:focus,.btn:active:focu
 
 .top_nav .navbar-right li{
     display:inline-block;
-    float:right;
+    /* float:right; */
     position:static;
 }
 
