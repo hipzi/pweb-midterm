@@ -19,6 +19,6 @@ class AuthSeller
     {
         if(Auth::check() && Auth::user()->isSeller())
             return $next($request);
-        else return route('login');
+        else return redirect()->route('login');
     }
 }

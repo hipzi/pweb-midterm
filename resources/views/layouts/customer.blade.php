@@ -55,18 +55,22 @@
 									<li class="nav-item">
 										<a class="nav-link" href="{{route('software-type')}}">Shop</a>
 									</li>
+									@if(Auth::check()))
 									<li class="nav-item">
-										@if(Auth::user())
 										<a class="nav-link" href="{{ route('profile.edit') }}">Profile</a>
+									</li>
+										@if (Auth::user()->isSeller())
+										<li class="nav-item">
+											<a class="nav-link" href="{{ route('seller.page') }}">Dashboard</a>
+										</li>
+										@endif
+									@endif
+									<li class="nav-item">
+										@if(Auth::check())
+										<a class="nav-link" href="{{ route('logout') }}">Logout</a>
 										@else
 										<a class="nav-link" href="{{ route('login') }}">Login</a>
 										@endif
-									</li>
-									<li class="nav-item">
-										@if(Auth::user())
-										<a class="nav-link" href="{{ route('logout') }}">Logout</a>
-										@endif
-										<a class="nav-link" href="{{route('login')}}">Login</a>
 									</li>
 								</ul>
 							</div>
