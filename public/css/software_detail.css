@@ -1,0 +1,29 @@
+.title {
+    font-size: 60px;
+}
+
+.description {
+    font-size: 30px;
+    color: black;
+}
+
+.price {
+    font-size: 35px;
+    color: #825a1f;
+}
+
+.publisher {
+    font-size: 25px;
+}
+
+.btn-brown {
+    width: 100%;
+    font-size: 25px;
+    background-color: #825a1f;
+    color: white;
+}
+
+.bought {
+    font-size: 25px;
+    color: green;
+}

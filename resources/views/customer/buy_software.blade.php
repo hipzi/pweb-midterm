@@ -1,5 +1,7 @@
 @extends('layouts.customer')
 
+@section('title', 'Buy Software')
+
 @section('extra-header')
     <link href="{{ asset('css/buy_software.css') }}" rel="stylesheet">
 @endsection
@@ -21,7 +23,7 @@
                                 <h5 class="card-title">{{$software->name}}</h5>
                                 <p class="card-text">{{$software->description}}</p>
                                 <p class="card-text"><b>Price : {{($software->price > 0)?$software->price : "Free"}}</b></p>
-                                <a href="#" class="btn detail-button">Detail</a>
+                                <a href="{{route('software-detail', ['id' => $software->id])}}" class="btn detail-button">Detail</a>
                             </div>
                     </div>
                 </div>

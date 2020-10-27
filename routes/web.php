@@ -19,9 +19,9 @@ Route::get('/', function () {
     return view('customer.home');
 })->name('home');
 
-Route::get('/login', [AuthController::class, 'login'])->name('login');
+Route::get('/login', [AuthController::class, 'login'])->middleware('guest')->name('login');
 
-Route::get('/software/{type}', [BuyController::class, 'softwareWithType'])->name('software-type');
+Route::get('/software/{type?}', [BuyController::class, 'softwareWithType'])->name('software-type');
 
 Route::prefix('auth')->name('auth.')->group(function () {
     Route::post('auth', [AuthController::class, 'auth'])->name('auth');
@@ -30,7 +30,7 @@ Route::prefix('auth')->name('auth.')->group(function () {
 
 //Route for authenticated user
 Route::middleware('auth')->group(function () {
-
+    Route::get('/software/detail/{id}', [BuyController::class, 'viewSoftwareDetail'])->name('software-detail');
 });
 
 // Route for seller only
