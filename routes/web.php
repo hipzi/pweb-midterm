@@ -20,9 +20,8 @@ Route::get('/', function () {
     return view('customer.home');
 })->name('home');
 
-Route::get('/login', [AuthController::class, 'login'])->name('login');
-Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 Route::get('/login', [AuthController::class, 'login'])->middleware('guest')->name('login');
+Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::get('/software/{type?}', [BuyController::class, 'softwareWithType'])->name('software-type');
 
