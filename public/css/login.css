@@ -48,8 +48,8 @@ a {
 
 button {
 	border-radius: 20px;
-	border: 1px solid #1799F7;
-	background-color: #1799F7;
+	border: 1px solid #825a1f;
+	background-color: #825a1f;
 	color: #FFFFFF;
 	font-size: 12px;
 	font-weight: bold;
@@ -164,7 +164,7 @@ input {
 }
 
 .overlay {
-	background-image: url('../img/BGAuth.png');
+	background-image: url('../img/gutsy-final-ubuntu.jpg');
 	/* background: #1799F7;
 	background: -webkit-linear-gradient(to right, #1799F7, #4AA7EB);
 	background: linear-gradient(to right, #1799F7, #4AA7EB); */
