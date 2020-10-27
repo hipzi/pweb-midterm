@@ -29,6 +29,8 @@
 
 </head>
 <body>
+    @auth
+    @if(auth()->user()->isSeller())
     <div id="app">
         
     <body class="nav-md admin">
@@ -121,6 +123,13 @@
 
     </div>
     @yield('scripts')
+
+    @else
+    <script type="text/javascript">
+        window.location = "{{ route('login') }}";
+    </script>
+    @endif
+    @endauth
 </body>
 </html>
 
