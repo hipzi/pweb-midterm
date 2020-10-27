@@ -19,7 +19,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- Fonts -->
-    <link href="//fonts.googleapis.com/css?family=Oswald:300,400,500,600&display=swap" rel="stylesheet">
+	<link href="//fonts.googleapis.com/css?family=Oswald:300,400,500,600&display=swap" rel="stylesheet">
+	<!-- <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet"> -->
     <link href="//fonts.googleapis.com/css?family=Lato:300,300i,400,400i,700,900&display=swap" rel="stylesheet">
 	
 </head>
@@ -67,15 +68,13 @@
 				</div>
 			</div>
 		</header>
+
+	<!-- Content -->
+	<main>
+		@yield('content')
+	</main>
+	<!-- End Content -->
 </section>
-<br>
-<br>
-<br>
-<!-- Content -->
-<main>
-    @yield('content')
-</main>
-<!-- End Content -->
 
 <section class="w3l-footer-22">
     <!-- footer-22 -->
@@ -101,12 +100,14 @@
     </div>
 	<!-- //titels-5 -->
 </section>
+
 <script src="{{ asset('js/jquery.magnific-popup.js') }}" defer></script>
-<script src="{{ asset('js/main-customer.js') }}"></script>
+<script src="{{ asset('js/main-customer.js') }}" defer></script>
 
 <!-- Bootstrap -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 
+@yield('scripts')
 </body>
 </html>
