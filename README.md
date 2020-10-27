@@ -17,6 +17,7 @@
 - Make database for this project at local
 - Edit DB setting at .env according to our local DB setting
 - Run `php artisan migrate`
+- Run `php artisan db:seed`
 - Run `php artisan serve` so you can see the project running
 
 ## About Laravel
