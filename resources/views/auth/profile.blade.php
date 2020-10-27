@@ -13,9 +13,10 @@
 <body>
     <div class="container" id="container">
         <div class="form-container edit-container">
+            <a href="{{ route('home') }}" style="z-index:999; background-color:red; font-size:20px; margin-left: 5px; padding: 8px 8px 8px 8px; border-radius: 50px; color:white;">x</a>
             <form action="{{ route('profile.edit') }}" method="POST">
                 @csrf
-                <h1 style="margin-bottom:20px;">Edit Profile</h1>
+                <h1 style="margin-bottom:20px;">Profile</h1>
                 <label class="left-label" for="name">{{ __('Name') }}</label>
                 <input type="text" name="name" placeholder="Name" value="{{ old('name', $user->name) }}"/>
                 <label for="email">{{ __('Email') }}</label>

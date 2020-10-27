@@ -56,10 +56,18 @@
 										<a class="nav-link" href="#">Shop</a>
 									</li>
 									<li class="nav-item">
-										<a class="nav-link" href="#">Login</a>
+										@if(Auth::user())
+										<a class="nav-link" href="{{ route('profile.edit') }}">Profile</a>
+										@else
+										<a class="nav-link" href="{{ route('login') }}">Login</a>
+										@endif
+									</li>
+									<li class="nav-item">
+										@if(Auth::user())
+										<a class="nav-link" href="{{ route('logout') }}">Logout</a>
+										@endif
 									</li>
 								</ul>
-
 							</div>
 						</div>
 					</nav>
