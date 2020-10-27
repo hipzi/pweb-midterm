@@ -64,6 +64,9 @@ class AuthController extends Controller
                 return redirect()->route('login', $feedback);
             }
 
+            $credentials = $request->only('email', 'password');
+
+            Auth::attempt($credentials);
 
             return redirect()->route('home');
         }
