@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<title>Bismillah</title>
+	<title>@yield('title')</title>
 	
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -33,7 +33,7 @@
 				<div class="top-right-strip row">
 					<!--/left-->
 					<div class="top-hny-left-content col-lg-6 pl-lg-0">
-						<a class="navbar-brand" href="index.html">
+						<a class="navbar-brand" href="{{route('home')}}">
 							Soft<span class="lohny">W</span>are</a>
 					</div>
 					<!--//left-->
@@ -48,16 +48,16 @@
 							<div class="collapse navbar-collapse" id="navbarSupportedContent">
 								<ul class="navbar-nav ml-auto">
 									<li class="nav-item active">
-										<a class="nav-link" href="index.html">Home</a>
+										<a class="nav-link" href="{{route('home')}}">Home</a>
 									</li>
 									<li class="nav-item">
 										<a class="nav-link" href="#">About</a>
 									</li>
 									<li class="nav-item">
-										<a class="nav-link" href="#">Shop</a>
+										<a class="nav-link" href="{{route('software-type')}}">Shop</a>
 									</li>
 									<li class="nav-item">
-										<a class="nav-link" href="#">Login</a>
+										<a class="nav-link" href="{{route('login')}}">Login</a>
 									</li>
 								</ul>
 
