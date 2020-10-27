@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\SellerController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\BuyController;
 use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
@@ -21,6 +22,9 @@ Route::get('/', function () {
 
 Route::get('/login', [AuthController::class, 'login'])->name('login');
 Route::get('logout', [AuthController::class, 'logout'])->name('logout');
+Route::get('/login', [AuthController::class, 'login'])->middleware('guest')->name('login');
+
+Route::get('/software/{type?}', [BuyController::class, 'softwareWithType'])->name('software-type');
 
 Route::prefix('auth')->name('auth.')->group(function () {
     Route::post('auth', [AuthController::class, 'auth'])->name('auth');
@@ -31,6 +35,7 @@ Route::prefix('auth')->name('auth.')->group(function () {
 Route::middleware('auth')->group(function () {
     Route::get('profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::post('profile', [ProfileController::class, 'update'])->name('profile.edit');
+    Route::get('/software/detail/{id}', [BuyController::class, 'viewSoftwareDetail'])->name('software-detail');
 });
 
 // Route for seller only

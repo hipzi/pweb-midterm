@@ -1,5 +1,7 @@
 @extends('layouts.customer')
 
+@section('title', 'Home')
+
 @section('content')
 <div class="bannerhny-content">
     <div class="content-baner-inf">
@@ -43,13 +45,13 @@
 			<div class="welcome-grids row mt-5">
                 <div class="col-md-12">
                     <div class="mobile d-inline-block">
-                        <h4><a href="#URL">Mobile</a></h4>
+						<h4><a href="{{route('software-type', ['type' => 3])}}">Mobile</a></h4>
                     </div>
                     <div class="website d-inline-block">
-                        <h4><a href="#URL">Website</a></h4>
+                        <h4><a href="{{route('software-type', ['type' => 2])}}">Website</a></h4>
                     </div>
                     <div class="desktop d-inline-block">
-                        <h4><a href="#URL">Desktop</a></h4>
+                        <h4><a href="{{route('software-type', ['type' => 1])}}">Desktop</a></h4>
                     </div>
                 </div>
 			</div>

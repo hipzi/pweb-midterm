@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<title>Bismillah</title>
+	<title>@yield('title')</title>
 	
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -21,7 +21,7 @@
     <!-- Fonts -->
 	<link href="//fonts.googleapis.com/css?family=Oswald:300,400,500,600&display=swap" rel="stylesheet">
     <link href="//fonts.googleapis.com/css?family=Lato:300,300i,400,400i,700,900&display=swap" rel="stylesheet">
-	
+	@yield('extra-header')
 </head>
 <body>
 <!--w3l-banner-slider-main-->
@@ -32,7 +32,7 @@
 				<div class="top-right-strip row">
 					<!--/left-->
 					<div class="top-hny-left-content col-lg-6 pl-lg-0">
-						<a class="navbar-brand" href="index.html">
+						<a class="navbar-brand" href="{{route('home')}}">
 							Soft<span class="lohny">W</span>are</a>
 					</div>
 					<!--//left-->
@@ -47,13 +47,13 @@
 							<div class="collapse navbar-collapse" id="navbarSupportedContent">
 								<ul class="navbar-nav ml-auto">
 									<li class="nav-item active">
-										<a class="nav-link" href="index.html">Home</a>
+										<a class="nav-link" href="{{route('home')}}">Home</a>
 									</li>
 									<li class="nav-item">
 										<a class="nav-link" href="#">About</a>
 									</li>
 									<li class="nav-item">
-										<a class="nav-link" href="#">Shop</a>
+										<a class="nav-link" href="{{route('software-type')}}">Shop</a>
 									</li>
 									<li class="nav-item">
 										@if(Auth::user())
@@ -66,6 +66,7 @@
 										@if(Auth::user())
 										<a class="nav-link" href="{{ route('logout') }}">Logout</a>
 										@endif
+										<a class="nav-link" href="{{route('login')}}">Login</a>
 									</li>
 								</ul>
 							</div>
