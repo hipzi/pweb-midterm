@@ -27,7 +27,7 @@
                 @elseif(!Auth::user()->checkSoftwareStatus($software->id))
                     <a href="#" class="btn btn-brown">Buy</a>
                 @elseif(Auth::user()->checkSoftwareStatus($software->id)->status()->status == "bought")
-                    <p class="bought">Bought</p>
+                    <a href="#" class="btn btn-brown">Download</a>
                 @else
                     <a href="#" class="btn btn-brown">Pending</a>
                 @endif
