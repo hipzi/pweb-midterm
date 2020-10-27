@@ -75,7 +75,7 @@ button.ghost {
 form {
 	background-color: #FFFFFF;
 	display: flex;
-	align-items: center;
+	/* align-items: center; */
 	justify-content: center;
 	flex-direction: column;
 	padding: 0 50px;
@@ -293,3 +293,43 @@ input {
 	}
 }
 input.radio {width: auto;}
+
+/* Edit Profile */
+
+
+
+.form-container label {
+	font-size: 11px;
+	text-align: left !important;
+	margin-left: 2px;
+}
+
+.button-center {
+	margin-top: 30px;
+	width: 30%;
+	display: flex;
+	align-self: center;
+}
+
+.button-center:hover {
+	background-color: rgba(130, 90, 31, 0.8);
+}
+
+.edit-container {
+	left: 0;
+	width: 70%;
+	z-index: 2;
+}
+
+.overlay-edit {
+	background-image: url('../img/gutsy-final-ubuntu.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	color: #FFFFFF;
+	position: relative;
+	right: -50%;
+	height: 100%;
+	width: 200%;
+  	transform: translateX(0);
+	transition: transform 0.6s ease-in-out;
+}

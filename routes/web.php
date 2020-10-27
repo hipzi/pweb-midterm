@@ -1,8 +1,9 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\SellerController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -27,10 +28,11 @@ Route::prefix('auth')->name('auth.')->group(function () {
 
 //Route for authenticated user
 Route::middleware('auth')->group(function () {
-
+    Route::get('profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::post('profile', [ProfileController::class, 'update'])->name('profile.edit');
 });
 
 // Route for seller only
 Route::middleware('auth-seller')->group(function () {
-
+    Route::get('seller', [SellerController::class, 'index'])->name('seller.page');
 });
