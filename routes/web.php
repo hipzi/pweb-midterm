@@ -20,6 +20,7 @@ Route::get('/', function () {
 })->name('home');
 
 Route::get('/login', [AuthController::class, 'login'])->name('login');
+Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::prefix('auth')->name('auth.')->group(function () {
     Route::post('auth', [AuthController::class, 'auth'])->name('auth');
