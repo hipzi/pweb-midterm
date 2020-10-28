@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Bismillah') }}</title>
+    <title>@yield('title')</title>
 
     <!-- JQuery -->
     <script src="{{ asset('js/jquery-3.5.1.min.js') }}" defer></script>
@@ -65,7 +65,7 @@
                     </li>
                     <li><a><i class="fa fa-list"></i> List <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
-                        <li><a href="#">Page</a></li>
+                        <li><a href="{{ route('history.list') }}">History Software</a></li>
                         <li><a href="#">Page</a></li>
                         <li><a href="#">Page</a></li>
                         </ul>
@@ -100,12 +100,12 @@
                 </div>
             <nav class="nav navbar-nav">
                 <ul class=" navbar-right">
-                    <li class="nav-item dropdown open" style="padding-left: 15px;">
+                    <li class="nav-item dropdown open" style="padding-left: 15px; float:right;">
                         <a style="color: white; text-decoration: none; z-index: 999;" href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
                             <i class="fa fa-user admin"></i>Seller
                         </a>
-                        <div style="margin: auto" class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#"><i class="fa fa-sign-out pull-right"></i>Log Out</a>
+                        <div style="margin: auto; z-index: 999;" class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{{ route('logout') }}"><i class="fa fa-sign-out pull-right"></i>Logout</a>
                         </div>
                     </li>   
                 </ul>
@@ -123,6 +123,10 @@
 
     </div>
     @yield('scripts')
+
+    <!-- Bootstrap -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 
     @else
     <script type="text/javascript">

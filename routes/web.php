@@ -51,4 +51,6 @@ Route::middleware('auth')->group(function () {
 // Route for seller only
 Route::middleware('auth-seller')->group(function () {
     Route::get('seller', [SellerController::class, 'index'])->name('seller.page');
+    Route::get('/seller/list/data', [SellerController::class, 'historySoftware'])->name('history.data');
+    Route::get('/seller/list', [SellerController::class, 'viewHistorySoftware'])->name('history.list');
 });

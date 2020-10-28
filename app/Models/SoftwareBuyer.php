@@ -40,4 +40,21 @@ class SoftwareBuyer extends Model
         ->where('software_buyers.user_id', '=', $user_id)
         ->where('users.role', '=', 2);
     }
+
+    public static function historySoftware(){
+        return SoftwareBuyer::join('software', 'software.id', '=', 'software_buyers.software_id')
+        ->join('software_types', 'software_types.id', '=', 'software.type_id')
+        ->join('users', 'users.id', '=', 'software_buyers.user_id')
+        ->select([
+            'software_buyers.id',
+            'software_buyers.updated_at as date',
+            'software.name as software_name',
+            'software.description as software_description',
+            'software.price as software_price',
+            'software_types.type as software_type',
+            'software_buyers.rating as software_rating',
+            'software_buyers.review as software_review',
+        ])
+        ->where('software_buyers.status_id', '=', 2);
+    }
 }

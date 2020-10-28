@@ -141,5 +141,3 @@ $(document).ready(function () {
 init_sidebar();
 init_autosize();
 });	
-
-console.log('bisa');
