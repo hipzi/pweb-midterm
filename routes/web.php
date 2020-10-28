@@ -35,6 +35,8 @@ Route::middleware('auth')->group(function () {
     Route::get('profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::post('profile', [ProfileController::class, 'update'])->name('profile.edit');
     Route::get('/software/detail/{id}', [BuyController::class, 'viewSoftwareDetail'])->name('software-detail');
+    Route::get('/list/data', [BuyController::class, 'listSoftware'])->name('software.data');
+    Route::get('/list', [BuyController::class, 'viewListSoftware'])->name('software.list');
 });
 
 // Route for seller only

@@ -13,4 +13,21 @@ class SoftwareBuyer extends Model
         $status = Status::find($this->status_id);
         return $status;
     }
+
+    public function listSoftware($user_id){
+        return SoftwareBuyer::join('software', 'software.id', '=', 'software_buyers.software_id')
+        ->join('software_types', 'software_types.id', '=', 'software.type_id')
+        ->join('statuses', 'statuses.id', '=', 'software_buyers.status_id')
+        ->join('users', 'users.id', '=', 'software_buyers.user_id')
+        ->select([
+            'software_buyers.id',
+            'software.name as software_name',
+            'software.description as software_description',
+            'software.price as software_price',
+            'software_types.type as software_type',
+            'statuses.status as software_status',
+        ])
+        ->where('software_buyers.user_id', '=', $user_id)
+        ->where('users.role', '=', 2);
+    }
 }

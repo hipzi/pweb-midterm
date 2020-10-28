@@ -4907,3 +4907,10 @@ display: block;
         padding-left:auto !important;
     }
 }
+
+/* List Software */
+
+.thead-custom-dark {
+    background-color: #232020;
+    color: white;
+}

@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Software;
 use App\Models\SoftwareType;
+use App\Models\SoftwareBuyer;
+use App\Models\Status;
+use DataTables;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class BuyController extends Controller
@@ -33,5 +37,17 @@ class BuyController extends Controller
         ];
 
         return view('customer.software_detail')->with($data);
+    }
+
+    public function listSoftware(){
+        $user_id = Auth::id();
+        $data = SoftwareBuyer::findOrFail($user_id)->listSoftware($user_id)->newQuery();
+        // dd($data);
+        return DataTables::eloquent($data)->toJson();
+    }
+
+    function viewListSoftware()
+    {
+        return view('customer.list_software');
     }
 }
