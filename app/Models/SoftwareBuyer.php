@@ -36,6 +36,7 @@ class SoftwareBuyer extends Model
             'software.price as software_price',
             'software_types.type as software_type',
             'statuses.status as software_status',
+            'software.id as software_id',
         ])
         ->where('software_buyers.user_id', '=', $user_id)
         ->where('users.role', '=', 2);

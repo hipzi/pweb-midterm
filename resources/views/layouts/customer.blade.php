@@ -63,7 +63,7 @@
 										<li class="nav-item">
 											<a class="nav-link" href="{{ route('seller.page') }}">Dashboard</a>
 										</li>
-										@elseif (Auth::user())
+										@else
 										<li class="nav-item">
 											<a class="nav-link" href="{{ route('software.list') }}">Library</a>
 										</li>

@@ -16,12 +16,14 @@
                     <th scope="col">Price</th>
                     <th scope="col">Type</th>
                     <th scope="col">Status</th>
+                    <th scope="col">Detail</th>
                 </tr>
             </thead>
             <tbody></tbody>
         </table>
     </div>
 </div>
+<input type="hidden" id="url_web" value="{{env('APP_URL')}}">
 @endsection
 
 @section('scripts')
