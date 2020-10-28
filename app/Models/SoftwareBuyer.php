@@ -13,4 +13,14 @@ class SoftwareBuyer extends Model
         $status = Status::find($this->status_id);
         return $status;
     }
+
+    public function software() {
+        $software = Software::find($this->software_id);
+        return $software;
+    }
+
+    public function user() {
+        $user = User::firstWhere('id', $this->user_id);
+        return $user;
+    }
 }

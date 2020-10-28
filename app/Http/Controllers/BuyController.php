@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Software;
+use App\Models\SoftwareBuyer;
 use App\Models\SoftwareType;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class BuyController extends Controller
 {
@@ -33,5 +35,49 @@ class BuyController extends Controller
         ];
 
         return view('customer.software_detail')->with($data);
+    }
+
+    public function checkoutSoftware($id) {
+        $software_buyer = SoftwareBuyer::firstWhere([
+            ['software_id', $id],
+            ['user_id', Auth::id()]
+        ]);
+
+        if (!$software_buyer) {
+            $software_buyer = new SoftwareBuyer;
+            $software_buyer->user_id = Auth::id();
+            $software_buyer->software_id = $id;
+            $software_buyer->status_id = 1;
+            $software_buyer->review = "";
+            $software_buyer->rating = 0;
+            $software_buyer->proof_of_payment = "";
+            $software_buyer->save();
+        } else if($software_buyer->status()->id == 2){
+            return redirect()->route('software-detail', ['id' => $id]);
+        }
+
+        $data = [
+            "software_buyer" => $software_buyer,
+        ];
+
+        return view('customer.checkout_software')->with($data);
+    }
+
+    public function checkout(Request $request, $id) {
+        $software = Software::find($id);
+        $software_buyer = SoftwareBuyer::firstWhere([
+            ['software_id', $id],
+            ['user_id', Auth::id()]
+        ]);
+
+        if($software->price > 0) {
+            if(!$request->hasFile('proof_of_payment')) return redirect()->route('software-checkout', ['id' => $id])->with('error', 'Need to Upload Proof of Payment!');;
+            $software_buyer->proof_of_payment = base64_encode(file_get_contents($request->file('proof_of_payment')));
+        }
+
+        $software_buyer->status_id = 2;
+        $software_buyer->save();
+
+        return redirect()->route('software-detail', ['id' => $id]);
     }
 }

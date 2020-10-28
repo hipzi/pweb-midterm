@@ -46,7 +46,7 @@ class User extends Authenticatable
         return Role::find($this->role)->role == "seller";
     }
 
-    public function checkSoftwareStatus($software_id) {
+    public function softwareBuyer($software_id) {
         $software = SoftwareBuyer::firstWhere([
             ['software_id', $software_id],
             ['user_id', $this->id]

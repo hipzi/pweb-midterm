@@ -34,7 +34,15 @@ Route::middleware('auth')->group(function () {
     Route::get('logout', [AuthController::class, 'logout'])->name('logout');
     Route::get('profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::post('profile', [ProfileController::class, 'update'])->name('profile.edit');
-    Route::get('/software/detail/{id}', [BuyController::class, 'viewSoftwareDetail'])->name('software-detail');
+
+    Route::group(['middleware' => ['software-exist']], function () {
+        Route::get('/software/detail/{id}', [BuyController::class, 'viewSoftwareDetail'])->name('software-detail');
+
+        Route::group(['middleware' => ['software-already-bought']], function () {
+            Route::get('/software/checkout/{id}', [BuyController::class, 'checkoutSoftware'])->name('software-checkout');
+            Route::post('/checkout/{id}', [BuyController::class, 'checkout'])->name('checkout');
+        });
+    });
 });
 
 // Route for seller only
