@@ -46,7 +46,7 @@
 							</button>
 							<div class="collapse navbar-collapse" id="navbarSupportedContent">
 								<ul class="navbar-nav ml-auto">
-									<li class="nav-item active">
+									<li class="nav-item">
 										<a class="nav-link" href="{{route('home')}}">Home</a>
 									</li>
 									<li class="nav-item">
@@ -62,6 +62,10 @@
 										@if (Auth::user()->isSeller())
 										<li class="nav-item">
 											<a class="nav-link" href="{{ route('seller.page') }}">Dashboard</a>
+										</li>
+										@elseif (Auth::user())
+										<li class="nav-item">
+											<a class="nav-link" href="{{ route('software.list') }}">Library</a>
 										</li>
 										@endif
 									@endif
