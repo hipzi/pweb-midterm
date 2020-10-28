@@ -1,0 +1,16 @@
+.btn-brown {
+    width: 100%;
+    font-size: 25px;
+    background-color: #825a1f;
+    color: white;
+}
+
+.price {
+    color: black;
+    font-size: 45px;
+}
+
+.proof_of_payment {
+    color: black;
+    font-size: 25px;
+}

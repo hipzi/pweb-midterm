@@ -14,6 +14,16 @@ class SoftwareBuyer extends Model
         return $status;
     }
 
+    public function software() {
+        $software = Software::find($this->software_id);
+        return $software;
+    }
+
+    public function user() {
+        $user = User::firstWhere('id', $this->user_id);
+        return $user;
+    }
+
     public function listSoftware($user_id){
         return SoftwareBuyer::join('software', 'software.id', '=', 'software_buyers.software_id')
         ->join('software_types', 'software_types.id', '=', 'software.type_id')

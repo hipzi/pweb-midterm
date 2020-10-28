@@ -21,17 +21,29 @@
             <div class="col-6">
                 <p class="description">{{$software->description}}</p>
                 <p class="price"><b>Price : {{$software->price}}</b></p>
+                <p class="publisher">Rating : {{$software->rating()[0] . " From " . $software->rating()[1] . " Users"}}</p>
                 <p class="publisher">Publisher : {{$software->maker()->username}}</p>
                 @if (!Auth::check())
                     <a href="{{route('login')}}" class="btn btn-brown">Login First</a>
-                @elseif(!Auth::user()->checkSoftwareStatus($software->id))
-                    <a href="#" class="btn btn-brown">Buy</a>
-                @elseif(Auth::user()->checkSoftwareStatus($software->id)->status()->status == "bought")
+                @elseif(!Auth::user()->softwareBuyer($software->id))
+                    <a href="{{route('software-checkout', ['id' => $software->id])}}" class="btn btn-brown">Buy</a>
+                @elseif(Auth::user()->softwareBuyer($software->id)->status()->status == "bought")
                     <a href="#" class="btn btn-brown">Download</a>
+                    @if (Auth::user()->softwareBuyer($software->id)->rating == 0)
+                        <a href="#" class="btn btn-brown" style="margin-top: 10px;">Rate</a>
+                    @endif
                 @else
-                    <a href="#" class="btn btn-brown">Pending</a>
+                    <a href="{{route('software-checkout', ['id' => $software->id])}}" class="btn btn-brown">Pending</a>
                 @endif
             </div>
+        </div>
+        <div class="row">
+            <h2>Reviews</h2>
+            <ul>
+                @foreach ($software->software_buyers() as $sb)
+                    <li>{{$sb->user()->username . " : " . $sb->review}}</li>
+                @endforeach
+            </ul>
         </div>
     </div>
 </section>

@@ -21,7 +21,6 @@ Route::get('/', function () {
 })->name('home');
 
 Route::get('/login', [AuthController::class, 'login'])->middleware('guest')->name('login');
-Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::get('/software/{type?}', [BuyController::class, 'softwareWithType'])->name('software-type');
 
@@ -32,11 +31,21 @@ Route::prefix('auth')->name('auth.')->group(function () {
 
 //Route for authenticated user
 Route::middleware('auth')->group(function () {
+    Route::get('logout', [AuthController::class, 'logout'])->name('logout');
     Route::get('profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::post('profile', [ProfileController::class, 'update'])->name('profile.edit');
     Route::get('/software/detail/{id}', [BuyController::class, 'viewSoftwareDetail'])->name('software-detail');
     Route::get('/list/data', [BuyController::class, 'listSoftware'])->name('software.data');
     Route::get('/list', [BuyController::class, 'viewListSoftware'])->name('software.list');
+
+    Route::group(['middleware' => ['software-exist']], function () {
+        Route::get('/software/detail/{id}', [BuyController::class, 'viewSoftwareDetail'])->name('software-detail');
+
+        Route::group(['middleware' => ['software-already-bought']], function () {
+            Route::get('/software/checkout/{id}', [BuyController::class, 'checkoutSoftware'])->name('software-checkout');
+            Route::post('/checkout/{id}', [BuyController::class, 'checkout'])->name('checkout');
+        });
+    });
 });
 
 // Route for seller only
