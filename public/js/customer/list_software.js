@@ -45,6 +45,13 @@ tableElm.DataTable({
 			name: 'statuses.id',
 			searchable: true,
             visible: true,
-		}
+		},
+		{
+			title: 'Detail',
+			data: 'software_id',
+			render: function (data, type, row) {
+				return "<a class='btn btn-primary' href=\"/software/detail/" + data + "\">Click</a>";
+			}
+		},
 	],
 });
