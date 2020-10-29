@@ -33,7 +33,8 @@ class SellerController extends Controller
         $software = new Software;
 
         $mytime = Carbon::now();
-        $image = base64_encode(file_get_contents($request->file('picture')->path()));
+        $pictureFile = $request->file('picture');
+        $image = base64_encode(file_get_contents($pictureFile->path()));
         
         $software->maker = Auth::id();
         $software->name = $request->name;
@@ -42,7 +43,7 @@ class SellerController extends Controller
         $software->price = $request->price;
         $software->created_at = $mytime;
         $software->updated_at = $mytime;
-        $software->picture = $image;
+        $software->picture = 'data:image/{'.$pictureFile->getClientOriginalExtension().'};base64,'.$image;
 
         $software->save();
 
