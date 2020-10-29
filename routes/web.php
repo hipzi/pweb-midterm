@@ -25,9 +25,6 @@ Route::get('/login', [AuthController::class, 'login'])->middleware('guest')->nam
 
 Route::get('/software/{type?}', [BuyController::class, 'softwareWithType'])->name('software-type');
 
-Route::get('/register-software', function(){
-    return view('seller.register-software');
-});
 
 Route::prefix('auth')->name('auth.')->group(function () {
     Route::post('auth', [AuthController::class, 'auth'])->name('auth');
@@ -59,4 +56,6 @@ Route::middleware('auth-seller')->group(function () {
     Route::get('/seller/list/data', [SellerController::class, 'historySoftware'])->name('history.data');
     Route::get('/seller/list', [SellerController::class, 'viewHistorySoftware'])->name('history.list');
     Route::get('/seller/chart', [ChartController::class, 'chart'])->name('chart');
+    Route::get('/seller/register-software', [SellerController::class, 'registerSoftware'])->name('software.register');
+    Route::post('/seller/register-software', [SellerController::class, 'registerSoftwareToDatabase'])->name('software.register.post');
 });

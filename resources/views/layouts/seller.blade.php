@@ -54,6 +54,7 @@
                     <li><a><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
                             <li><a href="{{ route('chart') }}">Chart</a></li>
+                            <li><a href="{{ route('software.register') }}">Register Software</a></li>
                         </ul>
                     </li>
                     <li><a><i class="fa fa-edit"></i> Form <span class="fa fa-chevron-down"></span></a>
