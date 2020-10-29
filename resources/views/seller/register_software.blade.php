@@ -6,6 +6,11 @@
 <div class="right_col booking" role="main">
     <h2>Register Software</h2>
     <br>
+    @if (session('status'))
+        <div class="alert alert-success">
+            {{ session('status') }}
+        </div>
+    @endif
     <form action="{{route('software.register.post')}}" method="POST" enctype="multipart/form-data">
         @csrf
         <label for="software-name"><h5>Name</h5></label>

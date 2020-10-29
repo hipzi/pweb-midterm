@@ -51,7 +51,7 @@ class SellerController extends Controller
         $fileName = 
         Storage::disk('public')->put($software->id.'/'.$file->getClientOriginalName(), File::get($file));
 
-        return view('layouts.seller');
+        return redirect()->route('software.register')->with('status', 'Software Created!');
     }
 
 }

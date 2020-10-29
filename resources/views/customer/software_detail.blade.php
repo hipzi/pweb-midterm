@@ -42,12 +42,16 @@
             </div>
         </div>
         <div class="row">
-            <h2>Reviews</h2>
-            <ul>
-                @foreach ($software->software_buyers() as $sb)
-                    <li>{{$sb->user()->username . " : " . $sb->review}}</li>
-                @endforeach
-            </ul>
+            <div class="col-12">
+                <h2>Reviews</h2>
+            </div>
+            <div class="col-12">
+                <ul>
+                    @foreach ($software->software_buyers() as $sb)
+                        <li>{{$sb->user()->username . " : " . $sb->review}}</li>
+                    @endforeach
+                </ul>
+            </div>
         </div>
     </div>
 </section>
