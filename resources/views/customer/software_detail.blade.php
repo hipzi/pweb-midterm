@@ -28,9 +28,9 @@
                 @elseif(!Auth::user()->softwareBuyer($software->id))
                     <a href="{{route('software-checkout', ['id' => $software->id])}}" class="btn btn-brown">Buy</a>
                 @elseif(Auth::user()->softwareBuyer($software->id)->status()->status == "bought")
-                    <a href="#" class="btn btn-brown">Download</a>
+                    <a href="{{route('software-download', ['id' => $software->id])}}" class="btn btn-brown">Download</a>
                     @if (Auth::user()->softwareBuyer($software->id)->rating == 0)
-                        <a href="#" class="btn btn-brown" style="margin-top: 10px;">Rate</a>
+                        <a href="{{route('software-rate', ['id' => $software->id])}}" class="btn btn-brown" style="margin-top: 10px;">Rate</a>
                     @endif
                 @else
                     <a href="{{route('software-checkout', ['id' => $software->id])}}" class="btn btn-brown">Pending</a>

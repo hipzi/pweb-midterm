@@ -8,6 +8,7 @@ use App\Models\SoftwareType;
 use App\Models\Status;
 use DataTables;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
 
 class BuyController extends Controller
@@ -92,5 +93,16 @@ class BuyController extends Controller
         $software_buyer->save();
 
         return redirect()->route('software-detail', ['id' => $id]);
+    }
+
+    public function download(Request $request, $id){
+        $files = Storage::disk('public')->files('/'.$id);
+        foreach ($files as $filename) {
+            return Storage::disk('public')->download($filename);
+        }
+    }
+
+    public function rate(Request $request, $id){
+
     }
 }

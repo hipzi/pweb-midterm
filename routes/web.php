@@ -39,6 +39,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/software/detail/{id}', [BuyController::class, 'viewSoftwareDetail'])->name('software-detail');
     Route::get('/list/data', [BuyController::class, 'listSoftware'])->name('software.data');
     Route::get('/list', [BuyController::class, 'viewListSoftware'])->name('software.list');
+    Route::get('/download/{id}', [BuyController::class, 'download'])->name('software-download');
+    Route::get('/rate/{id}', [BuyController::class, 'rate'])->name('software-rate');
 
     Route::group(['middleware' => ['software-exist']], function () {
         Route::get('/software/detail/{id}', [BuyController::class, 'viewSoftwareDetail'])->name('software-detail');
