@@ -40,7 +40,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/list/data', [BuyController::class, 'listSoftware'])->name('software.data');
     Route::get('/list', [BuyController::class, 'viewListSoftware'])->name('software.list');
     Route::get('/download/{id}', [BuyController::class, 'download'])->name('software-download');
-    Route::get('/rate/{id}', [BuyController::class, 'rate'])->name('software-rate');
+    Route::get('/software/detail/{id}/rate', [BuyController::class, 'rate'])->name('software-rate');
+    Route::post('/software/detail/{id}/rate', [BuyController::class, 'rateProduct'])->name('rate-product');
 
     Route::group(['middleware' => ['software-exist']], function () {
         Route::get('/software/detail/{id}', [BuyController::class, 'viewSoftwareDetail'])->name('software-detail');

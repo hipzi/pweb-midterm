@@ -103,6 +103,26 @@ class BuyController extends Controller
     }
 
     public function rate(Request $request, $id){
+        $software = Software::find($id);
+        $data = [
+            'software'=>$software,
+        ];
+        return view('customer.rate_software')->with($data);
+    }
+
+    public function rateProduct(Request $request, $id){
+        $software_buyer = SoftwareBuyer::where([
+            ['software_id', $id],
+            ['user_id', Auth::id()]
+        ])->update(['rating' => $request->rating],
+            ['review' => $request->review]);
+
+        $software = Software::find($id);
+        $data = [
+            'software'=>$software,
+        ];
+        return view('customer.rate_software')->with($data);
 
     }
+
 }

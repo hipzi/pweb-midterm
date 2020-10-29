@@ -31,6 +31,10 @@
                     <a href="{{route('software-download', ['id' => $software->id])}}" class="btn btn-brown">Download</a>
                     @if (Auth::user()->softwareBuyer($software->id)->rating == 0)
                         <a href="{{route('software-rate', ['id' => $software->id])}}" class="btn btn-brown" style="margin-top: 10px;">Rate</a>
+                    @else
+                        <div class="container" style="margin-top:20px;">
+                            <h3>You have rated this product</h3>
+                        </div>
                     @endif
                 @else
                     <a href="{{route('software-checkout', ['id' => $software->id])}}" class="btn btn-brown">Pending</a>
