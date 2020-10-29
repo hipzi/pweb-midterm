@@ -25,6 +25,10 @@ Route::get('/login', [AuthController::class, 'login'])->middleware('guest')->nam
 
 Route::get('/software/{type?}', [BuyController::class, 'softwareWithType'])->name('software-type');
 
+Route::get('/register-software', function(){
+    return view('seller.register-software');
+});
+
 Route::prefix('auth')->name('auth.')->group(function () {
     Route::post('auth', [AuthController::class, 'auth'])->name('auth');
     Route::post('register', [AuthController::class, 'register'])->name('register');
