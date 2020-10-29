@@ -13,6 +13,11 @@
         <div class="row">
             <h1 class="title">{{$software->name}}</h1>
         </div>
+        @if (session('status'))
+            <div class="alert alert-success">
+                {{ session('status') }}
+            </div>
+        @endif
         <div class="container" style="height: 50px;"></div>
         <div class="row">
             <div class="col-6">

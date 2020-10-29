@@ -123,8 +123,9 @@ class BuyController extends Controller
         $software = Software::find($id);
         $data = [
             'software'=>$software,
+            'status' => 'Rate Success!'
         ];
-        return view('customer.rate_software')->with($data);
+        return redirect()->route('software-detail', ['id' => $id])->with($data);
 
     }
 
