@@ -111,11 +111,14 @@ class BuyController extends Controller
     }
 
     public function rateProduct(Request $request, $id){
-        $software_buyer = SoftwareBuyer::where([
+        $software_buyer = SoftwareBuyer::firstWhere([
             ['software_id', $id],
             ['user_id', Auth::id()]
-        ])->update(['rating' => $request->rating],
-            ['review' => $request->review]);
+        ]);
+
+        $software_buyer->rating = $request->rating;  
+        $software_buyer->review = $request->review;  
+        $software_buyer->save();
 
         $software = Software::find($id);
         $data = [
