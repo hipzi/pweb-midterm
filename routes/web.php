@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\SellerController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\BuyController;
+use App\Http\Controllers\ChartController;
 use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
@@ -53,4 +54,5 @@ Route::middleware('auth-seller')->group(function () {
     Route::get('seller', [SellerController::class, 'index'])->name('seller.page');
     Route::get('/seller/list/data', [SellerController::class, 'historySoftware'])->name('history.data');
     Route::get('/seller/list', [SellerController::class, 'viewHistorySoftware'])->name('history.list');
+    Route::get('/seller/chart', [ChartController::class, 'chart'])->name('chart');
 });

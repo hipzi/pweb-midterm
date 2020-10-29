@@ -41,4 +41,78 @@ class Software extends Model
 
         return $software_buyers;
     }
+
+    public function monthSalesRate($seller_id){
+        return Software::select(\DB::raw("COUNT(*) as count"))
+            ->join('software_buyers', 'software_buyers.software_id', '=', 'software.id')
+            ->whereYear('software_buyers.updated_at', date('Y'))
+            ->where('software.maker', '=', $seller_id)
+            ->groupBy(\DB::raw("Month(software_buyers.updated_at)"))
+            ->pluck('count');
+    }
+
+    public function monthSalesRateName($seller_id){
+        return Software::select(\DB::raw("COUNT(*) as count, Month(software_buyers.updated_at) as month"))
+            ->join('software_buyers', 'software_buyers.software_id', '=', 'software.id')
+            ->whereYear('software_buyers.updated_at', date('Y'))
+            ->where('software.maker', '=', $seller_id)
+            ->groupBy(\DB::raw("Month(software_buyers.updated_at)"))
+            ->pluck('month');
+    }
+
+    public function yearSalesRate($seller_id){
+        return Software::select(\DB::raw("COUNT(*) as count"))
+            ->join('software_buyers', 'software_buyers.software_id', '=', 'software.id')
+            ->where('software.maker', '=', $seller_id)
+            ->groupBy(\DB::raw("Year(software_buyers.updated_at)"))
+            ->pluck('count');
+    }
+
+    public function yearSalesRateName($seller_id){
+        return Software::select(\DB::raw("COUNT(*) as count, Year(software_buyers.updated_at) as year"))
+            ->join('software_buyers', 'software_buyers.software_id', '=', 'software.id')
+            ->where('software.maker', '=', $seller_id)
+            ->groupBy(\DB::raw("Year(software_buyers.updated_at)"))
+            ->pluck('month');
+    }
+
+    public function softwareTypeMobile($seller_id){
+        return Software::select(\DB::raw("COUNT(*) as count"))
+            ->where('software.maker', '=', $seller_id)
+            ->where('software.type_id', '=', 3)
+            ->groupBy(\DB::raw("software.type_id"))
+            ->pluck('count');
+    }
+
+    public function softwareTypeWebsite($seller_id){
+        return Software::select(\DB::raw("COUNT(*) as count"))
+            ->where('software.maker', '=', $seller_id)
+            ->where('software.type_id', '=', 2)
+            ->groupBy(\DB::raw("software.type_id"))
+            ->pluck('count');
+    }
+
+    public function softwareTypeDesktop($seller_id){
+        return Software::select(\DB::raw("COUNT(*) as count"))
+            ->where('software.maker', '=', $seller_id)
+            ->where('software.type_id', '=', 1)
+            ->groupBy(\DB::raw("software.type_id"))
+            ->pluck('count');
+    }
+
+    public function chartSoftware($seller_id){
+        return Software::select(\DB::raw("COUNT(*) as count"))
+            ->join('software_buyers', 'software_buyers.software_id', '=', 'software.id')
+            ->where('software.maker', '=', $seller_id)
+            ->groupBy(\DB::raw("software.name"))
+            ->pluck('count');
+    }
+
+    public function chartSoftwareName($seller_id){
+        return Software::select(\DB::raw("COUNT(*) as count, software.name as name"))
+            ->join('software_buyers', 'software_buyers.software_id', '=', 'software.id')
+            ->where('software.maker', '=', $seller_id)
+            ->groupBy(\DB::raw("software.name"))
+            ->pluck('name');
+    }
 }
