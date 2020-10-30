@@ -4,7 +4,7 @@
 <link href="{{ asset('css/register-software.css') }}" rel="stylesheet">
 
 <div class="right_col booking" role="main">
-    <h2>Register Software</h2>
+    <h2>Edit Software</h2>
     <br>
     @if (session('status'))
         <div class="alert alert-success">

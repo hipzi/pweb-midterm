@@ -49,6 +49,3 @@ tableElm.DataTable({
 		},
 	],
 });
-$('.dangerous_icon').on('click', function(){
-    return confirm("Are you sure?");
-});
