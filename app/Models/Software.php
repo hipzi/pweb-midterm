@@ -69,16 +69,16 @@ class Software extends Model
         return Software::select(\DB::raw("COUNT(*) as count"))
             ->join('software_buyers', 'software_buyers.software_id', '=', 'software.id')
             ->where('software.maker', '=', $seller_id)
-            ->groupBy(\DB::raw("Year(software_buyers.updated_at)"))
+            ->groupBy(\DB::raw("YEAR(software_buyers.updated_at)"))
             ->pluck('count');
     }
 
     public static function yearSalesRateName($seller_id){
-        return Software::select(\DB::raw("COUNT(*) as count, Year(software_buyers.updated_at) as year"))
+        return Software::select(\DB::raw("COUNT(*) as count, YEAR(software_buyers.updated_at) as year"))
             ->join('software_buyers', 'software_buyers.software_id', '=', 'software.id')
             ->where('software.maker', '=', $seller_id)
-            ->groupBy(\DB::raw("Year(software_buyers.updated_at)"))
-            ->pluck('month');
+            ->groupBy(\DB::raw("YEAR(software_buyers.updated_at)"))
+            ->pluck('year');
     }
 
     public static function softwareTypeMobile($seller_id){
