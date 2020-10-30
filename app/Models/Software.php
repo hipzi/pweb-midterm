@@ -42,6 +42,11 @@ class Software extends Model
         return $software_buyers;
     }
 
+    public static function softwareList($seller_id){
+        return Software::select(['software.updated_at', 'software.name', 'software.price', 'software_types.type', 'software.id'])->where('software.maker','=',$seller_id)
+                ->join('software_types', 'software.type_id', '=', 'software_types.id');
+    }
+
     public static function monthSalesRate($seller_id){
         return Software::select(\DB::raw("COUNT(*) as count"))
             ->join('software_buyers', 'software_buyers.software_id', '=', 'software.id')
