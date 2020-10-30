@@ -90,7 +90,7 @@ class SellerController extends Controller
 
         }
 
-        return redirect()->route('software.list', ['id'=>$id])->with('status', 'Software Edited!');
+        return redirect()->route('seller.software.list', ['id'=>$id])->with('status', 'Software Edited!');
     }
 
     public function viewSoftwareList(){
@@ -106,7 +106,7 @@ class SellerController extends Controller
     public function deleteSoftware($id){
         $software = Software::find($id);
         $software->delete();
-        return redirect()->route('software.list', ['id'=>$id])->with('status', 'Software Deleted!');
+        return redirect()->route('seller.software.list', ['id'=>$id])->with('status', 'Software Deleted!');
     }
 
 }

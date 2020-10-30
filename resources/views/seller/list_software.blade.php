@@ -11,7 +11,7 @@
             {{ session('status') }}
         </div>
     @endif
-<table class="table" id="listSoftware" data-ajaxurl="{{ route('software.list.data') }}">
+<table class="table" id="listSoftware" data-ajaxurl="{{ route('seller.software.list.data') }}">
     <thead class="thead-custom-dark">
         <tr>
             <th scope="col">Date</th>

@@ -64,20 +64,7 @@
                     <li><a><i class="fa fa-list"></i> List <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
                         <li><a href="{{ route('history.list') }}">History Software</a></li>
-                        <li><a href="{{ route('software.list') }}">Published Software</a></li>
-                        </ul>
-                    </li>
-                    <li><a><i class="fa fa-database"></i> Data <span class="fa fa-chevron-down"></span></a>
-                        <ul class="nav child_menu">
-                        <li><a href="#">Page</a></li>
-                        <li><a href="#">Page</a></li>
-                        </ul>
-                    </li>
-                    <li><a><i class="fa fa-table"></i> Report <span class="fa fa-chevron-down"></span></a>
-                        <ul class="nav child_menu">
-                            <li><a href="#">Page</a></li>
-                            <li><a href="#">Page</a></li>
-                            <li><a href="#">Page</a></li>
+                        <li><a href="{{ route('seller.software.list') }}">Published Software</a></li>
                         </ul>
                     </li>
                     </ul>
