@@ -61,4 +61,6 @@ Route::middleware('auth-seller')->group(function () {
     Route::get('/seller/chart', [ChartController::class, 'chart'])->name('chart');
     Route::get('/seller/register-software', [SellerController::class, 'registerSoftware'])->name('software.register');
     Route::post('/seller/register-software', [SellerController::class, 'registerSoftwareToDatabase'])->name('software.register.post');
+    Route::get('/seller/edit-software/{id}', [SellerController::class, 'editSoftware'])->name('software.edit');
+    Route::post('/seller/edit-software/{id}', [SellerController::class, 'editSoftwareToDatabase'])->name('software.edit.post');
 });

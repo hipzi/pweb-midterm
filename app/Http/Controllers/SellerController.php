@@ -21,15 +21,15 @@ class SellerController extends Controller
         return DataTables::eloquent($data)->toJson();
     }
 
-    function viewHistorySoftware() {
+    public function viewHistorySoftware() {
         return view('seller.history_software');
     }
 
-    function registerSoftware() {
+    public function registerSoftware() {
         return view('seller.register_software');
     }
 
-    function registerSoftwareToDatabase(Request $request) {
+    public function registerSoftwareToDatabase(Request $request) {
         $software = new Software;
 
         $mytime = Carbon::now();
@@ -48,10 +48,49 @@ class SellerController extends Controller
         $software->save();
 
         $file = $request->file('file');
-        $fileName = 
         Storage::disk('public')->put($software->id.'/'.$file->getClientOriginalName(), File::get($file));
 
         return redirect()->route('software.register')->with('status', 'Software Created!');
+    }
+
+    public function editSoftware($id){
+        $software = Software::find($id);
+        $data = [
+            'software'=>$software,
+        ];
+        return view('seller.edit_software')->with($data);
+    }
+
+    public function editSoftwareToDatabase(Request $request, $id){
+        $software = Software::find($id);
+
+        $mytime = Carbon::now();
+        
+        $software->maker = Auth::id();
+        $software->name = $request->name;
+        $software->type_id = $request->type;
+        $software->description = $request->description;
+        $software->price = $request->price;
+        
+        $software->updated_at = $mytime;
+
+        if($request->hasFile('picture')){
+            $pictureFile = $request->file('picture');
+            $image = base64_encode(file_get_contents($pictureFile->path()));
+            $software->picture = 'data:image/{'.$pictureFile->getClientOriginalExtension().'};base64,'.$image;
+        }
+
+        $software->save();
+
+        if($request->hasFile('file')){
+
+            Storage::disk('public')->delete($software->id);
+            $file = $request->file('file');
+            Storage::disk('public')->put($software->id.'/'.$file->getClientOriginalName(), File::get($file));
+
+        }
+
+        return redirect()->route('software.edit', ['id'=>$id])->with('status', 'Software Edited!');
     }
 
 }
