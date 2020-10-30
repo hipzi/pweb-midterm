@@ -1,0 +1,8 @@
+
+.dangerous_icon{
+    color: red;
+}
+
+.dangerous_icon:hover{
+    color:rgb(200, 0, 0);
+}

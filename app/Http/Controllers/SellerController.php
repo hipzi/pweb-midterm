@@ -90,7 +90,23 @@ class SellerController extends Controller
 
         }
 
-        return redirect()->route('software.edit', ['id'=>$id])->with('status', 'Software Edited!');
+        return redirect()->route('software.list', ['id'=>$id])->with('status', 'Software Edited!');
+    }
+
+    public function viewSoftwareList(){
+        return view('seller.list_software');
+    }
+
+    public function softwareList(){
+        $seller_id = Auth::id();
+        $data = Software::softwareList($seller_id)->newQuery();
+        return DataTables::eloquent($data)->toJson();
+    }
+
+    public function deleteSoftware($id){
+        $software = Software::find($id);
+        $software->delete();
+        return redirect()->route('software.list', ['id'=>$id])->with('status', 'Software Deleted!');
     }
 
 }
