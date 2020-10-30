@@ -33,6 +33,6 @@
 @endsection
 
 @section('scripts')
-<script src="{{ asset('js/highchart/highcharts.js')}}" defer></script>
+<script src="{{ asset('js/highchart/highchart.js')}}" defer></script>
 <script src="{{ asset('js/highchart/chart.js')}}" defer></script>
 @endsection

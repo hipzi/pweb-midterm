@@ -58,7 +58,7 @@ Highcharts.chart('container', {
     }
 });
 
-Highcharts.chart('container', {
+Highcharts.chart('container-2', {
     credits: {
         enabled: false
     },
@@ -187,17 +187,17 @@ Highcharts.chart('container-4', {
         colorByPoint: true,
         data: [{
             name: 'Mobile',
-            data: dosen,
+            data: mobile,
             y: 61.41,
             sliced: true,
             selected: true
         }, {
             name: 'Website',
-            data: tendik,
+            data: website,
             y: 11.84
         }, {
             name: 'Desktop',
-            data: mahasiswa,
+            data: desktop,
             y: 10.85
         }]
     }]
