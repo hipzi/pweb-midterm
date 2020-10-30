@@ -50,9 +50,6 @@
 										<a class="nav-link" href="{{route('home')}}">Home</a>
 									</li>
 									<li class="nav-item">
-										<a class="nav-link" href="#">About</a>
-									</li>
-									<li class="nav-item">
 										<a class="nav-link" href="{{route('software-type')}}">Shop</a>
 									</li>
 									@if(Auth::check()))

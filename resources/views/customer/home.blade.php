@@ -114,9 +114,7 @@
 							<div class="customer-info text-center">
 								<div class="feedback-hny">
 									<span class="fa fa-quote-left"></span>
-									<p class="feedback-para">Lorem, ipsum dolor sit amet consectetur
-										adipisicing elit. Labore rem, dicta assumenda mollitia molestias
-										quas nihil quasis.</p>
+									<p class="feedback-para">Software in here is very useful and useful</p>
 								</div>
 								<div class="feedback-review mt-4">
 									<h5>Smith Roy</h5>
@@ -127,9 +125,7 @@
 							<div class="customer-info text-center">
 								<div class="feedback-hny">
 									<span class="fa fa-quote-left"></span>
-									<p class="feedback-para">Lorem, ipsum dolor sit amet consectetur
-										adipisicing elit. Labore rem, dicta assumenda mollitia molestias
-										quas nihil quasis.</p>
+									<p class="feedback-para">Price offered is friendly, worth it to buy any software in here</p>
 								</div>
 								<div class="feedback-review mt-4">
 									<h5>Lora Grill</h5>
@@ -140,9 +136,7 @@
 							<div class="customer-info text-center">
 								<div class="feedback-hny">
 									<span class="fa fa-quote-left"></span>
-									<p class="feedback-para">Lorem, ipsum dolor sit amet consectetur
-										adipisicing elit. Labore rem, dicta assumenda mollitia molestias
-										quas nihil quasis.</p>
+									<p class="feedback-para">The quality of the software in this website is very good</p>
 								</div>
 								<div class="feedback-review mt-4">
 									<h5>Laura Sten</h5>
@@ -153,9 +147,7 @@
 							<div class="customer-info text-center">
 								<div class="feedback-hny">
 									<span class="fa fa-quote-left"></span>
-									<p class="feedback-para">Lorem, ipsum dolor sit amet consectetur
-										adipisicing elit. Labore rem, dicta assumenda mollitia molestias
-										quas nihil quasis.</p>
+									<p class="feedback-para">I love any software offered in this website</p>
 								</div>
 								<div class="feedback-review mt-4">
 									<h5>John Lee</h5>

@@ -67,19 +67,6 @@
                         <li><a href="{{ route('software.list') }}">Published Software</a></li>
                         </ul>
                     </li>
-                    <li><a><i class="fa fa-database"></i> Data <span class="fa fa-chevron-down"></span></a>
-                        <ul class="nav child_menu">
-                        <li><a href="#">Page</a></li>
-                        <li><a href="#">Page</a></li>
-                        </ul>
-                    </li>
-                    <li><a><i class="fa fa-table"></i> Report <span class="fa fa-chevron-down"></span></a>
-                        <ul class="nav child_menu">
-                            <li><a href="#">Page</a></li>
-                            <li><a href="#">Page</a></li>
-                            <li><a href="#">Page</a></li>
-                        </ul>
-                    </li>
                     </ul>
                 </div>
 
