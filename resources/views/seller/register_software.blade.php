@@ -1,4 +1,5 @@
 @extends('layouts.seller')
+@section('title', 'Register Software')
 
 @section('content')
 <link href="{{ asset('css/register-software.css') }}" rel="stylesheet">
@@ -62,12 +63,17 @@
 @endsection
 
 @section('scripts')
+<script src="{{asset('js/jquery-3.5.1.min.js') }}" type="text/javascript"></script>
 <script>
-
-$('#file-up').on('change', function() {
-   let fileName = $(this).val().split('\\').pop(); 
-   $(this).next('#file-label').addClass("selected").html(fileName); 
+$(document).ready(function () {
+    $('#file-up').on('change', function() {
+    let fileName = $(this).val().split('\\').pop(); 
+    $(this).next('#file-label').addClass("selected").html(fileName); 
+    });
+    $('#picture-up').on('change', function() {
+    let fileName = $(this).val().split('\\').pop(); 
+    $(this).next('#picture-label').addClass("selected").html(fileName); 
+    });
 });
-
 </script>
 @endsection
